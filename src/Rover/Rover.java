@@ -17,8 +17,30 @@ public class Rover {
 		switch (heading) {
 			case "N":
 				y++;
+				break;
+			case "E":
+				y++;
+				break;
+			case "S":
+				y++;
+				break;
+			case "W":
+				y++;
+				break;
 			default :
-				//shouldn't do anything here.
+				break;
+		}
+		
+	}
+	
+	public void backward() {
+		
+		switch (heading) {
+			case "N":
+				y--;
+				break;
+			default :
+				break;
 		}
 		
 	}
@@ -35,24 +57,14 @@ public class Rover {
 		return heading;
 	}
 
-	public void backward() {
-		
-		switch (heading) {
-			case "N":
-				x++;
-			default :
-				//shouldn't do anything here.
-		}
-		
-	}
-
 	public void turnLeft() {
 		
 		switch (heading) {
 			case "N":
 				heading = "W";
+				break;
 			default :
-				//shouldn't do anything here.
+				break;
 		}
 		
 	}
@@ -62,8 +74,9 @@ public class Rover {
 		switch (heading) {
 			case "N":
 				heading = "E";
+				break;
 			default :
-				//shouldn't do anything here.
+				break;
 		}
 		
 	}

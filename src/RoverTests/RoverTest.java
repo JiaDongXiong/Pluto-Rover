@@ -17,15 +17,15 @@ public class RoverTest {
 	}
 	
 	@Test
-	public final void FCommandShouldNotChangeTheHeadingOfTheRover() {
-		rover.forward();
-		assertEquals("N", rover.getHeading());
+	public final void BCommandWillMoveRoverBackwardByOneGridUnit() {
+		rover.backward();
+		assertEquals(-1, rover.getY()); 		//The default heading is north, so we would expect y-1.
 	}
 	
 	@Test
-	public final void BCommandWillMoveRoverBackwardByOneGridUnit() {
-		rover.backward();
-		assertEquals(1, rover.getX()); 		//The default heading is north, so we would expect y+1.
+	public final void FCommandShouldNotChangeTheHeadingOfTheRover() {
+		rover.forward();
+		assertEquals("N", rover.getHeading());
 	}
 	
 	@Test
@@ -48,18 +48,34 @@ public class RoverTest {
 		assertEquals(0, rover.getY());
 	}
 	
-	@Test
-	public final void LCommandShouldChangeTheHeadingOfTheRover() {
-		rover.turnLeft();
-		assertEquals("W", rover.getHeading()); 		//The default heading is north, 
-											   		//so we would expect the rover facing west now.
-	}
+//	@Test
+//	public final void LCommandShouldChangeTheHeadingOfTheRover() {
+//		rover.turnLeft();
+//		assertEquals("W", rover.getHeading()); 		//The default heading is north, 
+//											   		//so we would expect the rover facing west now.
+//	}
+//	
+//	@Test
+//	public final void RCommandShouldChangeTheHeadingOfTheRover() {
+//		rover.turnRight();
+//		assertEquals("E", rover.getHeading());  	//The default heading is north, 
+//		   											//so we would expect the rover facing east now.
+//	}
 	
-	@Test
-	public final void RCommandShouldChangeTheHeadingOfTheRover() {
-		rover.turnRight();
-		assertEquals("E", rover.getHeading());  	//The default heading is north, 
-		   											//so we would expect the rover facing east now.
-	}
+//	@Test
+//	public final void RoverShouldBeAbleToHandleASequenceOfCommands() {
+//		rover.turnLeft();
+//		rover.forward();
+//		rover.turnLeft();
+//		rover.forward();
+//		rover.turnRight();
+//		rover.forward();
+//		rover.turnLeft();
+//		rover.backward();
+//		
+//		assertEquals("E", rover.getHeading());
+//		assertEquals(1, rover.getX());
+//		assertEquals(2, rover.getY());
+//	}
 	
 }
