@@ -84,12 +84,13 @@ public class RoverTest {
 		rover.forward();
 		rover.turnRight(); 
 		rover.backward();
-		String report = rover.backward(); //The rover should stop executing commands and report the obstacle here. 
+		String report = rover.backward(); 	//The rover should stop executing commands and report the obstacle here. 
 		rover.turnLeft();
 		rover.backward();
 		
-		assertEquals("Obstacle detected at (98, 1).", report);
-		assertEquals("E", rover.getHeading());
+		assertEquals("Obstacle detected at (98, 1).", report);  	//The rover will report the position of the obstacle
+		//The rover should not execute more commands after encountering an obstacle.
+		assertEquals("E", rover.getHeading());  
 		assertEquals(99, rover.getX());
 		assertEquals(1, rover.getY());
 	}
