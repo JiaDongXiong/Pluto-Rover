@@ -19,13 +19,13 @@ public class Rover {
 				y++;
 				break;
 			case "E":
-				y++;
+				x++;
 				break;
 			case "S":
-				y++;
+				y--;
 				break;
 			case "W":
-				y++;
+				x--;
 				break;
 			default :
 				break;
@@ -38,6 +38,15 @@ public class Rover {
 		switch (heading) {
 			case "N":
 				y--;
+				break;
+			case "E":
+				x--;
+				break;
+			case "S":
+				y++;
+				break;
+			case "W":
+				x++;
 				break;
 			default :
 				break;
@@ -63,6 +72,15 @@ public class Rover {
 			case "N":
 				heading = "W";
 				break;
+			case "E":
+				heading = "N";
+				break;
+			case "S":
+				heading = "E";
+				break;
+			case "W":
+				heading = "S";
+				break;
 			default :
 				break;
 		}
@@ -74,6 +92,15 @@ public class Rover {
 		switch (heading) {
 			case "N":
 				heading = "E";
+				break;
+			case "E":
+				heading = "S";
+				break;
+			case "S":
+				heading = "W";
+				break;
+			case "W":
+				heading = "N";
 				break;
 			default :
 				break;

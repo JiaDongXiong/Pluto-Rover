@@ -10,17 +10,17 @@ public class RoverTest {
 	Rover rover = new Rover(0,0,"N");
 	
 	//Forward command should only move the rover in its current direction by one grid unit
-	@Test
-	public final void FCommandWillMoveRoverForwardByOneGridUnit() {
-		rover.forward();
-		assertEquals(1, rover.getY()); 		//The default heading is north, so we would expect y+1.
-	}
-	
-	@Test
-	public final void BCommandWillMoveRoverBackwardByOneGridUnit() {
-		rover.backward();
-		assertEquals(-1, rover.getY()); 		//The default heading is north, so we would expect y-1.
-	}
+//	@Test
+//	public final void FCommandWillMoveRoverForwardByOneGridUnit() {
+//		rover.forward();
+//		assertEquals(1, rover.getY()); 		//The default heading is north, so we would expect y+1.
+//	}
+//	
+//	@Test
+//	public final void BCommandWillMoveRoverBackwardByOneGridUnit() {
+//		rover.backward();
+//		assertEquals(-1, rover.getY()); 		//The default heading is north, so we would expect y-1.
+//	}
 	
 	@Test
 	public final void FCommandShouldNotChangeTheHeadingOfTheRover() {
@@ -62,20 +62,20 @@ public class RoverTest {
 //		   											//so we would expect the rover facing east now.
 //	}
 	
-//	@Test
-//	public final void RoverShouldBeAbleToHandleASequenceOfCommands() {
-//		rover.turnLeft();
-//		rover.forward();
-//		rover.turnLeft();
-//		rover.forward();
-//		rover.turnRight();
-//		rover.forward();
-//		rover.turnLeft();
-//		rover.backward();
-//		
-//		assertEquals("E", rover.getHeading());
-//		assertEquals(1, rover.getX());
-//		assertEquals(2, rover.getY());
-//	}
+	@Test
+	public final void RoverShouldBeAbleToHandleASequenceOfCommands() {
+		rover.turnLeft();
+		rover.forward();
+		rover.turnLeft();
+		rover.backward();
+		rover.turnRight();
+		rover.forward();
+		rover.turnLeft();
+		rover.backward();
+		
+		assertEquals("S", rover.getHeading());
+		assertEquals(-2, rover.getX());
+		assertEquals(2, rover.getY());
+	}
 	
 }
