@@ -10,17 +10,17 @@ public class RoverTest {
 	Rover rover = new Rover(0,0,"N");
 	
 	//Forward command should only move the rover in its current direction by one grid unit
-//	@Test
-//	public final void FCommandWillMoveRoverForwardByOneGridUnit() {
-//		rover.forward();
-//		assertEquals(1, rover.getY()); 		//The default heading is north, so we would expect y+1.
-//	}
-//	
-//	@Test
-//	public final void BCommandWillMoveRoverBackwardByOneGridUnit() {
-//		rover.backward();
-//		assertEquals(100, rover.getY()); 		//The default heading is north, so we would expect y-1.
-//	}
+	@Test
+	public final void FCommandWillMoveRoverForwardByOneGridUnit() {
+		rover.forward();
+		assertEquals(1, rover.getY()); 		//The default heading is north, so we would expect y+1.
+	}
+	
+	@Test
+	public final void BCommandWillMoveRoverBackwardByOneGridUnit() {
+		rover.backward();
+		assertEquals(100, rover.getY()); 		//The default heading is north, so we would expect y-1.
+	}
 	
 	@Test
 	public final void FCommandShouldNotChangeTheHeadingOfTheRover() {
@@ -48,35 +48,19 @@ public class RoverTest {
 		assertEquals(0, rover.getY());
 	}
 	
-//	@Test
-//	public final void LCommandShouldChangeTheHeadingOfTheRover() {
-//		rover.turnLeft();
-//		assertEquals("W", rover.getHeading()); 		//The default heading is north, 
-//											   		//so we would expect the rover facing west now.
-//	}
-//	
-//	@Test
-//	public final void RCommandShouldChangeTheHeadingOfTheRover() {
-//		rover.turnRight();
-//		assertEquals("E", rover.getHeading());  	//The default heading is north, 
-//		   											//so we would expect the rover facing east now.
-//	}
+	@Test
+	public final void LCommandShouldChangeTheHeadingOfTheRover() {
+		rover.turnLeft();
+		assertEquals("W", rover.getHeading()); 		//The default heading is north, 
+											   		//so we would expect the rover facing west now.
+	}
 	
-//	@Test
-//	public final void RoverShouldBeAbleToHandleASequenceOfCommands() {
-//		rover.turnLeft();
-//		rover.forward();
-//		rover.turnLeft();
-//		rover.backward();
-//		rover.turnRight();
-//		rover.forward();
-//		rover.turnLeft();
-//		rover.backward();
-//		
-//		assertEquals("S", rover.getHeading());
-//		assertEquals(-2, rover.getX());
-//		assertEquals(2, rover.getY());
-//	}
+	@Test
+	public final void RCommandShouldChangeTheHeadingOfTheRover() {
+		rover.turnRight();
+		assertEquals("E", rover.getHeading());  	//The default heading is north, 
+		   											//so we would expect the rover facing east now.
+	}
 	
 	@Test
 	public final void RoverCanMoveFromOneEdgeToTheOther() {
@@ -89,6 +73,25 @@ public class RoverTest {
 		rover.backward();
 		assertEquals(100, rover.getX()); 	//Rover should be at (100, 100) now.
 		assertEquals(100, rover.getY());
+	}
+	
+	@Test
+	public final void RoverShouldBeAbleToHandleASequenceOfCommandsAndReportObstacle() {
+		//Let make an obstacle at (98, 1) on the grid.
+		rover.turnLeft();
+		rover.forward();
+		rover.turnRight();
+		rover.forward();
+		rover.turnRight(); 
+		rover.backward();
+		String report = rover.backward(); //The rover should stop executing commands and report the obstacle here. 
+		rover.turnLeft();
+		rover.backward();
+		
+		assertEquals("Obstacle detected at (98, 1).", report);
+		assertEquals("E", rover.getHeading());
+		assertEquals(99, rover.getX());
+		assertEquals(1, rover.getY());
 	}
 	
 }
