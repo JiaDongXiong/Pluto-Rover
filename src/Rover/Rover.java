@@ -6,6 +6,9 @@ public class Rover {
 	private int y;
 	private String heading;
 	
+	private int maxBound = 100;
+	private int minBound = 0;
+	
 	public Rover(int x, int y, String heading) {
 		this.x = x;
 		this.y = y;
@@ -16,16 +19,32 @@ public class Rover {
 		
 		switch (heading) {
 			case "N":
-				y++;
+				if (y == maxBound) {
+					y = 0;
+				} else{
+					y++;
+				}
 				break;
 			case "E":
-				x++;
+				if (x == maxBound) {
+					x = 0;
+				} else{
+					x++;
+				}
 				break;
 			case "S":
-				y--;
+				if (y == minBound) {
+					y = 100;
+				} else{
+					y--;
+				}
 				break;
 			case "W":
-				x--;
+				if (x == minBound) {
+					x = 100;
+				} else {
+					x--;
+				}
 				break;
 			default :
 				break;
@@ -37,16 +56,32 @@ public class Rover {
 		
 		switch (heading) {
 			case "N":
-				y--;
+				if (y == minBound) {
+					y = 100;
+				} else{
+					y--;
+				}
 				break;
 			case "E":
-				x--;
+				if (x == minBound) {
+					x = 100;
+				} else {
+					x--;
+				}
 				break;
 			case "S":
-				y++;
+				if (y == maxBound) {
+					y = 0;
+				} else{
+					y++;
+				}
 				break;
 			case "W":
-				x++;
+				if (x == maxBound) {
+					x = 0;
+				} else{
+					x++;
+				}
 				break;
 			default :
 				break;

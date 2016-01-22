@@ -19,7 +19,7 @@ public class RoverTest {
 //	@Test
 //	public final void BCommandWillMoveRoverBackwardByOneGridUnit() {
 //		rover.backward();
-//		assertEquals(-1, rover.getY()); 		//The default heading is north, so we would expect y-1.
+//		assertEquals(100, rover.getY()); 		//The default heading is north, so we would expect y-1.
 //	}
 	
 	@Test
@@ -62,20 +62,33 @@ public class RoverTest {
 //		   											//so we would expect the rover facing east now.
 //	}
 	
+//	@Test
+//	public final void RoverShouldBeAbleToHandleASequenceOfCommands() {
+//		rover.turnLeft();
+//		rover.forward();
+//		rover.turnLeft();
+//		rover.backward();
+//		rover.turnRight();
+//		rover.forward();
+//		rover.turnLeft();
+//		rover.backward();
+//		
+//		assertEquals("S", rover.getHeading());
+//		assertEquals(-2, rover.getX());
+//		assertEquals(2, rover.getY());
+//	}
+	
 	@Test
-	public final void RoverShouldBeAbleToHandleASequenceOfCommands() {
-		rover.turnLeft();
-		rover.forward();
-		rover.turnLeft();
-		rover.backward();
-		rover.turnRight();
-		rover.forward();
-		rover.turnLeft();
-		rover.backward();
+	public final void RoverCanMoveFromOneEdgeToTheOther() {
+		rover.turnLeft(); 	//now the rover is facing west
+		rover.forward();	//make the rover to cross the bound
+		assertEquals(100, rover.getX()); 	//Rover should be at (100, 0) now.
+		assertEquals(0, rover.getY());
 		
-		assertEquals("S", rover.getHeading());
-		assertEquals(-2, rover.getX());
-		assertEquals(2, rover.getY());
+		rover.turnRight(); 	//now the rover is facing north
+		rover.backward();
+		assertEquals(100, rover.getX()); 	//Rover should be at (100, 100) now.
+		assertEquals(100, rover.getY());
 	}
 	
 }
