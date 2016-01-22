@@ -13,12 +13,14 @@ public class Rover {
 	}
 	
 	public void forward() {
+		
 		switch (heading) {
 			case "N":
 				y++;
 			default :
 				//shouldn't do anything here.
 		}
+		
 	}
 	
 	public int getX() {
@@ -34,12 +36,35 @@ public class Rover {
 	}
 
 	public void backward() {
+		
 		switch (heading) {
 			case "N":
 				x++;
 			default :
 				//shouldn't do anything here.
+		}
+		
 	}
+
+	public void turnLeft() {
+		
+		switch (heading) {
+			case "N":
+				heading = "W";
+			default :
+				//shouldn't do anything here.
+		}
+		
+	}
+
+	public void turnRight() {
+		
+		switch (heading) {
+			case "N":
+				heading = "E";
+			default :
+				//shouldn't do anything here.
+		}
 		
 	}
 	
